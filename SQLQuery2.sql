@@ -64,11 +64,11 @@ Select * from dbo.vv_StudentGrades
 
 ALTER VIEW dbo.vv_StudentGrades
 AS
-SELECT S.FirstName AS StudentFirstName , S.LastName as StudentLastName , G.Grade as GradeCount 
-FROM 
+SELECT s.ID, COUNT (*) as TotalGrades
+FROM
 dbo.Grade as G
-inner join dbo.Student as S on S.ID = G.StudentID
-GROUP BY S.FirstName , S.LastName , G.Grade
+inner join dbo.Student as S ON S.ID = g.StudentID 
+GROUP BY s.ID,G.StudentID
 
 Select * from dbo.vv_StudentGrades
 
